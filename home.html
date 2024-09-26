@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Squirrels Tree Service</title>
+  <style>
+  #contact-form {
+    /*    width:30%;*/
+      
+      width:100%;
+    /*
+      padding:40px;
+      margin: 50px auto;
+    */
+      position:relative;
+    }
+    #contact-form h1 {
+      font-size:42px;
+    }
+    #contact-form h2 {
+      margin-bottom:15px;
+      font-style:italic;
+      font-weight:normal;
+    }
+    #contact-form input,
+    #contact-form select,
+    #contact-form textarea,
+    #contact-form label {
+      font-size:15px;
+      margin-bottom:2px;
+    }
+    #contact-form input,
+    #contact-form select,
+    #contact-form textarea {
+      width: 100%;
+      border: 1px solid #656565;
+      margin-bottom:20px;
+      padding:10px;
+      border-radius: 3px;
+      box-sizing: border-box;
+      transition-duration: 300ms;
+    }
+    #contact-form input:focus,
+    #contact-form select:focus,
+    #contact-form textarea:focus {
+      box-shadow: 0 0 0 3px #00466fe3;
+      outline: none;
+    }
+    #contact-form textarea {
+      height:150px;
+      resize: none;
+    }
+    #contact-form label {
+      display:block;
+    }
+    #contact-form .required {
+      font-weight:bold;
+      color:#F00;
+    }
+    #contact-form textarea {
+      display:block;
+    }
+    #contact-form #submit-button {
+      background-color:#333;
+      color: white;
+      border:none;
+      background-color:#f23a1a;
+      -moz-border-radius:8px;
+    }
+    #contact-form #submit-button:hover {
+      background-color: #00466f;
+    }
+    #contact-form #submit-button:active {
+      position:relative;
+      top:1px;
+    }
+    #contact-form #loading {
+      width:32px;
+      height:32px;
+      background-image:url( "images/form/loading.gif");
+      display:block;
+      position:absolute;
+      right:130px;
+      bottom:16px;
+      display:none;
+    }
+    #errors {
+      border:solid 1px #E58E8E;
+      padding:10px;
+      margin:25px 0px;
+      display:block;
+      width:437px;
+      -webkit-border-radius:8px;
+      -moz-border-radius:8px;
+      border-radius:8px;
+      background:#FFE6E6 url( "images/form/cancel_48.png") no-repeat 405px center;
+      display:none;
+    }
+    #errors li {
+      padding:2px;
+      list-style:none;
+    }
+    #errors li:before {
+      content: ' - ';
+    }
+    #errors #info {
+      font-weight:bold;
+    }
+    #errors #info:before {
+      content: '';
+    }
+    #success {
+      border:solid 1px #83D186;
+      padding:25px 10px;
+      margin:25px 0px;
+      display:block;
+      width:437px;
+      -webkit-border-radius:8px;
+      -moz-border-radius:8px;
+      border-radius:8px;
+      background:#D3EDD3 url( "images/form/accepted_48.png") no-repeat 405px center;
+      font-weight:bold;
+      display:none;
+    }
+    #errors.visible, #success.visible {
+      display:block;
+    }
+    #req-field-desc {
+      font-style:italic;
+    }
+    /* Remove box shadow firefox, chrome and opera put around required fields. It looks rubbish. */
+    input:required, textarea:required {
+      -moz-box-shadow:none;
+      -webkit-box-shadow:none;
+      -o-box-shadow:none;
+      box-shadow:none;
+    }
+    /* Normalize placeholder styles */
+    /* chrome, safari */
+    ::-webkit-input-placeholder {
+      color:#CCC;
+      font-style:italic;
+    }
+    /* mozilla */
+    input:-moz-placeholder, textarea:-moz-placeholder {
+      color:#CCC;
+      font-style:italic;
+    }
+    /* ie (faux placeholder) */
+    input.placeholder-text, textarea.placeholder-text  {
+      color:#CCC;
+      font-style:italic;
+    }
+    .ir { display: block; text-indent: -999em; overflow: hidden; background-repeat: no-repeat; text-align: left; direction: ltr; }
+    .hidden { display: none; visibility: hidden; }
+    .visuallyhidden { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; }
+    .visuallyhidden.focusable:active,
+    .visuallyhidden.focusable:focus { clip: auto; height: auto; margin: 0; overflow: visible; position: static; width: auto; }
+    .invisible { visibility: hidden; }
+    .clearfix:before, .clearfix:after { content: "\0020"; display: block; height: 0; overflow: hidden; }
+    .clearfix:after { clear: both; }
+    .clearfix { zoom: 1; }
+    @media all and (orientation:portrait) {
+    }
+    @media all and (orientation:landscape) {
+    }
+    @media screen and (max-device-width: 480px) {
+      /* html { -webkit-text-size-adjust:none; -ms-text-size-adjust:none; } */
+    }
+    @media print {
+      * { background: transparent !important; color: black !important; text-shadow: none !important; filter:none !important;
+      -ms-filter: none !important; }
+      a, a:visited { color: #444 !important; text-decoration: underline; }
+      a[href]:after { content: " (" attr(href) ")"; }
+      abbr[title]:after { content: " (" attr(title) ")"; }
+      .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; }
+      pre, blockquote { border: 1px solid #999; page-break-inside: avoid; }
+      thead { display: table-header-group; }
+      tr, img { page-break-inside: avoid; }
+      @page { margin: 0.5cm; }
+      p, h2, h3 { orphans: 3; widows: 3; }
+      h2, h3{ page-break-after: avoid; }
+    }	
+      
+      
+    </style>			
+</head>
+<body>
+  
+
+<div class="swiper-container swiper-slider" data-effect="frame-trapeze" data-loop="true" data-autoplay="5500" data-speed="1200" data-mousewheel="false" data-keyboard="true" data-frame-fill="url(#gradient1)">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="swiper-slide-img" style="background-image: url(images/slider-slide-5-1920x1280.jpg);" data-swiper-anime="{ &quot;animation&quot;: &quot;swiperSlideRotate&quot;, &quot;duration&quot;: 2000, &quot;delay&quot;: 600 }"></div>
+            <div class="swiper-slide-caption text-center context-dark">
+              <h1 data-swiper-anime="{ &quot;animation&quot;: &quot;swiperContentStack&quot;, &quot;duration&quot;: 1000, &quot;delay&quot;: 500 }">WELCOME TO</h1>
+              <h3 data-swiper-anime="{ &quot;animation&quot;: &quot;swiperContentStack&quot;, &quot;duration&quot;: 1000, &quot;delay&quot;: 600 }">Squirrels Tree Service Inc</h3>
+              <!--div class="group-lg group-middle" data-swiper-anime="{ &quot;animation&quot;: &quot;swiperContentStack&quot;, &quot;duration&quot;: 1000, &quot;delay&quot;: 700 }"><a class="button button-primary button-shadow" href="#features" data-custom-scroll-to="features">See Features</a><a class="button button-black button-shadow" href="#">Buy template</a></div-->
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="swiper-slide-img" style="background-image: url(images/slider-slide-6-1920x986.jpg);" data-swiper-anime="{ &quot;animation&quot;: &quot;swiperSlideRotate&quot;, &quot;duration&quot;: 2000, &quot;delay&quot;: 600 }"></div>
+            <div class="swiper-slide-caption context-dark">
+              <h2 data-swiper-anime="{ &quot;animation&quot;: &quot;swiperContentStack&quot;, &quot;duration&quot;: 1000, &quot;delay&quot;: 500 }">Quality services and<br class="d-none d-lg-block"> Free estimates</h2><!--a class="button button-primary button-shadow" href="#" data-swiper-anime="{ &quot;animation&quot;: &quot;swiperContentStack&quot;, &quot;duration&quot;: 1000, &quot;delay&quot;: 700 }">Buy template</a-->
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="swiper-slide-img" style="background-image: url(images/slider-slide-7-1920x1080.jpg);" data-swiper-anime="{ &quot;animation&quot;: &quot;swiperSlideRotate&quot;, &quot;duration&quot;: 2000, &quot;delay&quot;: 600 }"></div>
+            <div class="swiper-slide-caption context-dark">
+              <div class="container">
+                <div class="row justify-content-center">
+                  <div class="col-lg-7">
+                    <h2 data-swiper-anime="{ &quot;animation&quot;: &quot;swiperContentStack&quot;, &quot;duration&quot;: 1000, &quot;delay&quot;: 500 }">20 years of experience</h2>
+                    <h5 class="text-width-2 block-centered" data-swiper-anime="{ &quot;animation&quot;: &quot;swiperContentStack&quot;, &quot;duration&quot;: 1000, &quot;delay&quot;: 600 }">YOUR PROPERTY IS IMPORTANT TO US.</h5>
+                    <!--div class="group-lg group-middle" data-swiper-anime="{ &quot;animation&quot;: &quot;swiperContentStack&quot;, &quot;duration&quot;: 1000, &quot;delay&quot;: 700 }"><a class="button button-black button-shadow" href="#features" data-custom-scroll-to="features">See Features</a><a class="button button-primary button-shadow" href="#">Buy template</a></div-->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev linear-icon-chevron-left"></div>
+        <div class="swiper-button-next linear-icon-chevron-right"></div>
+      </div>
+		
+		
+      
+<section class="section-xs section-cta bg-gray-dark text-center text-md-left" style="background: url(images/Fondo.jpg)">
+        <div class="container">
+			
+          <div class="row row-30 justify-content-between align-items-center">
+			  
+          <div class="col-12 col-md-6" style="text-align: center">
+			
+				<a href="tel:+18472193246"><img src="images/click-to-call-button.png"/></a><br><br>
+
+				
+              <h4>Our History</h4>
+				
+              <p>Squirrels Tree Service Inc is a tree service company located in Zion Rd Zion, IL. Founded in 1999 by a team of professionals passionate about tree care and the environment, the company has experienced tremendous growth and success over the past few decades. In its early years, they focused on offering tree trimming and removal services, which allowed them to establish a solid reputation in the local community. Over time, Squirrels Tree Service Inc expanded their range of services to include land clearing, limb grinding and emergency care. Thanks to its commitment to customer satisfaction and the quality of its work, the company has become one of the most trusted tree service companies in the region. Today, Squirrels Tree Service Inc is known for its ability to tackle projects of any size and scope, and is proud of its contribution to the beauty and health of the natural environment of the Rd Zion, IL community.</p>
+				
+				<ul class="list-xxs">
+                <li><a href="tel:+18472193246" style="color: white; font-weight: 600">• Tel: (847) 219-3246</a></li>
+                <li><a href="" style="color: white; font-weight: 600">• Our Services Areas:<br> •Deerfield IL <br>
+					•Gurnee IL <br>
+					•Highland park IL<br>
+					•Northbrook IL<br>
+					•Kenosha Wisconsin <br>
+					•Pleasant Prairie<br>
+					•Wisconsin IL<br>
+					•Zion, IL
+					</a></li>
+                <li><a  style="color: white; font-weight: 600">• 20 Years of Exp.</a></li>
+                <li><a  style="color: white; font-weight: 600">• We Cover 20 Miles</a></li>
+			
+              </ul>
+		
+				
+            </div>
+			  
+			  
+			  
+
+           
+				
+			 <div class="col-12 col-md-6" style="text-align: left">	
+				
+			<p>&nbsp;</p>
+			<div id="contact-form" class="clearfix">
+    <h1 style="color: #ffffff" align="center">Get In Touch!</h1>
+    <p style="color: #ffffff" align="center">Fill out the contact form below to get in touch with us! Please provide as much information as possible so we can assist you with your inquiry</p>
+    <ul id="errors" class="">
+        <li id="info">There were some problems with your form submission:</li>
+    </ul>
+    <p id="success">Thanks for your message! We will get back to you ASAP!</p>
+    <form method="post" action="process.php">
+        <label for="name" style="color: #ffffff">Name: <span class="required">*</span></label>
+        <input type="text" id="name" name="name" value="" placeholder="Enter full name" required="required" autofocus="autofocus" />
+        <label for="email" style="color: #ffffff">Email Address: <span class="required">*</span></label>
+        <input type="email" id="email" name="email" value="" placeholder="user@email.com" required="required" />
+        <label for="telephone" style="color: #ffffff">Telephone: </label>
+        <input type="tel" id="telephone" name="telephone" value="" />
+<!--
+        <label for="enquiry" style="color: #00466f">Select a Service: </label>
+		
+        <select id="enquiry" name="enquiry">
+	
+			
+			<option value="tree services">Tree Services</option>
+            <option value="pruning">Pruning</option>
+            <option value="trimming">Trimming</option>
+			<option value="vista pruning">Vista Pruning</option>
+			<option value="debris removal">Debris Removal</option>
+
+			
+       </select>
+		
+-->
+		
+		
+		
+        <label for="message" style="color: #ffffff">Message: <span class="required">*</span></label>
+        <textarea id="message" name="message" placeholder="Your message must be greater than 10 charcters" required="required" data-minlength="20"></textarea>
+        <span id="loading"></span>
+        <input type="submit" value="Send Message" id="submit-button" />
+        <p id="req-field-desc" style="color: #ffffff"><span class="required">*</span> indicates a required field</p>
+    </form>
+</div>
+		
+				
+				
+				
+		
+	
+<!--</section>-->
+
+	
+
+						
+<!--
+	======================					
+	Formulario de Contacto
+	======================						
+-->				
+		
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+			  
+			  
+			  </div>
+
+			  
+			  
+			  
+          </div>
+        </div>
+      </section>
+
+
+			<script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
+<div class="elfsight-app-573f3e69-a823-4f6b-ba24-21249fd5aec4"></div>					 
+																										 
+      <!-- About us-->
+      <section class="bg-gray-lighter object-wrap" style="background: url( images/text/2.jpg)">
+<!--
+        <div class="bg-decor d-flex align-items-center justify-content-start" data-parallax-scroll="{&quot;y&quot;: 50,  &quot;smoothness&quot;: 30}"><img src="images/bg-decor-4.png" alt=""/>
+        </div>
+-->
+        <div class="section-lg">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-5" style="color: #1f0302; font-weight: 600">
+                <h4 class="heading-decorated" style="color: #1f0302">About us</h4>
+                <p>Our professional tree service is passionate about providing an answer to your tree cutting or removal needs. We also understand that in some cases trees are beyond recovery and need to be removed for safety reasons.<br><br>
+
+Whether a tree has fallen, and you need emergency assistance, or you’re planning on removing trees for a project, our specialists provide reliable and effective tree removal services.</p>
+                <div class="row row-30">
+                  <div class="col-xl-6">
+                    <!-- Blurb minimal-->
+                    <article class="blurb blurb-minimal">
+                      <div class="unit flex-row unit-spacing-md">
+                        <div class="unit-left">
+                          <div class="blurb-minimal__icon"><span class="icon linear-icon-menu3"></span></div>
+                        </div>
+                        <div class="unit-body">
+                          <p class="blurb__title heading-6"><a href="#" style="color: #1f0302">PROFESSIONAL SERVICES</a></p>
+                          <p>A coherent image for your property, an image that reflects quality and professionalism.</p>
+                      </div>
+						  </div>
+                    </article>
+                  </div>
+                  <div class="col-xl-6">
+                    <!-- Blurb minimal-->
+                    <article class="blurb blurb-minimal">
+                      <div class="unit flex-row unit-spacing-md">
+                        <div class="unit-left">
+                          <div class="blurb-minimal__icon"><span class="icon linear-icon-users2"></span></div>
+                        </div>
+                        <div class="unit-body">
+                          <p class="blurb__title heading-6" style="color: #1f0302"><a href="#">TEAMWORK</a></p>
+                          <p>We are a team of professionals who demand excellence and provide quality beyond expectations.</p>
+                        </div>
+                      </div>
+                    </article>
+                  </div>
+                </div>
+                <div class="row justify-content-md-center">
+                  <div class="col-md-12">
+                    <!-- Linear progress bar-->
+                    <div class="progress-linear progress-linear-modern">
+                      <div class="progress-header" style="color: #1f0302">
+                        <p>Responsibility</p><span class="progress-value">100</span>
+                      </div>
+                      <div class="progress-bar-linear-wrap">
+                        <div class="progress-bar-linear"></div>
+                      </div>
+                    </div>
+                    <!-- Linear progress bar-->
+                    <div class="progress-linear progress-linear-modern">
+                      <div class="progress-header" style="color: #1f0302">
+                        <p>Commitment</p><span class="progress-value">100</span>
+                      </div>
+                      <div class="progress-bar-linear-wrap">
+                        <div class="progress-bar-linear"></div>
+                      </div>
+                    </div>
+                    <!-- Linear progress bar-->
+                    <div class="progress-linear progress-linear-modern">
+                      <div class="progress-header" style="color: #1f0302">
+                        <p>Honesty</p><span class="progress-value">100</span>
+                      </div>
+                      <div class="progress-bar-linear-wrap">
+                        <div class="progress-bar-linear"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="object-wrap__body object-wrap__body-sizing-1 object-wrap__body-md-right bg-image" style="background-image: url(images/bg-image-1.jpg)"></div>
+      </section>
+      <!-- Our Services-->
+      <section class="section-md bg-default text-center decor-text" id="features" data-content="Services" style="background: url(images/text/4.jpg)">
+<!--
+        <div class="bg-decor d-flex align-items-center" data-parallax-scroll="{&quot;x&quot;: 80,  &quot;smoothness&quot;: 30}"><img src="images/bg-decor-1.png" alt=""/>
+        </div>
+-->
+        <div class="container">
+          <h4 class="heading-decorated">Our Services</h4>
+          <div class="row row-50 justify-content-md-center justify-content-lg-start text-left">
+            <div class="col-md-6 col-xl-4">
+              <!-- Blurb circle-->
+              <article class="blurb blurb-minimal">
+                <div class="unit flex-row unit-spacing-md">
+                  <div class="unit-left">
+                    <div class="blurb-minimal__icon"><span class="icon linear-icon-pencil-ruler"></span></div>
+                  </div>
+                  <div class="unit-body">
+                    <p class="blurb__title heading-6"><a href="?page=services">Tree Service</a></p>
+                    <p style="color: saddlebrown">We understand that it can be difficult to find time in your busy schedule to worry about the maintenance and care of your trees, gardens & landscape.</p>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <div class="col-md-6 col-xl-4">
+              <!-- Blurb circle-->
+              <article class="blurb blurb-minimal">
+                <div class="unit flex-row unit-spacing-md">
+                  <div class="unit-left">
+                    <div class="blurb-minimal__icon"><span class="icon linear-icon-users"></span></div>
+                  </div>
+                  <div class="unit-body">
+                    <p class="blurb__title heading-6"><a href="?page=services">Tree Removal</a></p>
+                    <p style="color: saddlebrown">We will meet with you on your property to discuss your needs and provide you with expert advice. We will provide a firm price quote.</p>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <div class="col-md-6 col-xl-4">
+              <!-- Blurb circle-->
+              <article class="blurb blurb-minimal">
+                <div class="unit flex-row unit-spacing-md">
+                  <div class="unit-left">
+                    <div class="blurb-minimal__icon"><span class="icon linear-icon-wall"></span></div>
+                  </div>
+                  <div class="unit-body">
+                    <p class="blurb__title heading-6"><a href="?page=services">Land Clearing</a></p>
+                    <p style="color: saddlebrown">We understand that it can be difficult to find time in your busy schedule to worry about the maintenance of your Property's Landscape.</p>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <div class="col-md-6 col-xl-4">
+              <!-- Blurb circle-->
+              <article class="blurb blurb-minimal">
+                <div class="unit flex-row unit-spacing-md">
+                  <div class="unit-left">
+                    <div class="blurb-minimal__icon"><span class="icon linear-icon-apartment"></span></div>
+                  </div>
+                  <div class="unit-body">
+                    <p class="blurb__title heading-6"><a href="?page=services">Tree Pruning</a></p>
+                    <p style="color: saddlebrown">Our company has been providing high quality turf for over 20 years through our turf installations and turf maintenance programs.</p>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <div class="col-md-6 col-xl-4">
+              <!-- Blurb circle-->
+              <article class="blurb blurb-minimal">
+                <div class="unit flex-row unit-spacing-md">
+                  <div class="unit-left">
+                    <div class="blurb-minimal__icon"><span class="icon linear-icon-home4"></span></div>
+                  </div>
+                  <div class="unit-body">
+                    <p class="blurb__title heading-6"><a href="?page=services">Brush Chipping</a></p>
+                    <p style="color: saddlebrown">Do you have one or more unsightly Shrubs on your property? Whether a previous owner has left you there or you have never finished.</p>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <div class="col-md-6 col-xl-4">
+              <!-- Blurb circle -->
+              <article class="blurb blurb-minimal">
+                <div class="unit flex-row unit-spacing-md">
+                  <div class="unit-left">
+                    <div class="blurb-minimal__icon"><span class="icon linear-icon-pencil-ruler2"></span></div>
+                  </div>
+                  <div class="unit-body">
+                    <p class="blurb__title heading-6"><a href="?page=services">And More</a></p>
+                    <p style="color: saddlebrown">Squirrels Tree Service Inc helps emphasize parts of your property while making a distinction between the lawn and garden beds. </p>
+                  </div>
+                </div>
+              </article>
+            </div>
+            
+			  
+          </div>
+        </div>
+      </section>
+
+      <section class="section-md bg-gray-lighter text-center decor-text" data-content="Process">
+        <div class="container">
+          <h4 class="heading-decorated" style="color: white">Only the Best</h4>
+          <div class="row row-30 justify-content-center">
+            <div class="col-sm-10 col-lg-6"><img src="images/home-var-2-650x495.jpg" alt="" width="650" height="495"/>
+            </div>
+            <div class="col-sm-10 col-lg-6">
+              <!-- Blurb circle-->
+              <article class="blurb blurb-circle">
+                <div class="unit flex-row unit-spacing-md">
+                  <div class="unit-left">
+                    <div class="blurb-circle__icon"><span class="icon linear-icon-feather"></span></div>
+                  </div>
+                  <div class="unit-body">
+                    <p class="blurb__title heading-6" style="color: wheat">We are proud of our work</p>
+						<p style="color: white">To make sure you leave satisfied with the work we do. Our number one commitment is the commitment to the quality of Landscape care at a fair price. That's why we make sure we have a team of tree care professionals who are not only properly trained, but also have the right people for every Landscape service job.</p>
+                  </div>
+                </div>
+              </article>
+              <!-- Blurb circle-->
+              <article class="blurb blurb-circle">
+                <div class="unit flex-row unit-spacing-md">
+                  <div class="unit-left">
+                    <div class="blurb-circle__icon"><span class="icon linear-icon-menu3"></span></div>
+                  </div>
+                  <div class="unit-body">
+                    <p class="blurb__title heading-6" style="color: wheat">THE APPROPRIATE EQUIPMENT AND PROCESS</p>
+                    <p style="color: white">Each job is unique, so we have a wide range of quality tree service teams to handle any situation. We make sure to use the equipment and the right process for the job in order to keep costs down, reduce the completion time and minimize the impact on the surrounding area.</p>
+                  </div>
+                </div>
+              </article>
+              <!-- Blurb circle-->
+              <article class="blurb blurb-circle">
+                <div class="unit flex-row unit-spacing-md">
+                  <div class="unit-left">
+                    <div class="blurb-circle__icon"></div></div>
+                  <div class="unit-body">
+                    <p class="blurb__title heading-6" style="color: wheat">RESULTS</p>
+                    <p style="color: white">Our commitment is to deliver a finished job in landscape care at a fair price. That's why we make sure we have a team of tree care professionals who are not only properly trained, but also have the right people for each landscape service job.</p>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!--cta-->
+      <!-- Call to Action-->
+      <section class="section-md bg-accent bg-image text-center bg-overlay-darker" style="background-image: url(images/bg-image-8.jpg); background-position: center 50%;">
+        <div class="container">
+          <div class="row justify-content-md-center">
+            <div class="col-md-11 col-lg-9 col-xl-8"> 
+              <h3 class="heading-decorated">OUR BEST EFFORT IS FOR EVERYONE</h3><!--a class="button button-primary" href="contacts.html">Contact Us</a-->
+            </div>
+          </div>
+        </div>
+      </section>
+
+    
+      <section class="section-md text-center bg-default">
+</body>
+</html>
